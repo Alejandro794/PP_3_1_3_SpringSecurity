@@ -2,13 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User page for User</title>
+    <title>User page for Admin</title>
 </head>
 <body>
 <p th:text="${user.getUsername()}">VALUE</p>
 <p th:text="${'Email: ' + user.getEmail()}">VALUE</p>
-<p th:text="${'Id: ' + user.getId()}">VALUE</p>
-
-<a th:href="@{/logout}">Exit</a>
+<p th:text="${'ID: ' + user.getId()}">VALUE</p>
+<p th:text="${user.getRoles()}">name</p>
+<br/>
+<hr/>
+<br/>
+<form th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 </body>
 </html>

@@ -6,7 +6,6 @@
 </head>
 <body>
 
-
 <form th:method="POST" th:action="@{/admin}" th:object="${user}">
     <label for="username">Enter Username: </label>
     <input type="text" th:field="*{username}" id="username"/>
@@ -19,6 +18,17 @@
     <label for="password">Enter Password: </label>
     <input type="text" th:field="*{password}" id="password"/>
     <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+    <br/>
+    <br/>
+    <label>Roles:
+        <input type="checkbox" name="roles"
+               th:each="role : ${allRoles}"
+               th:text="${role.getName()}"
+               th:value="${role.getId()}"
+               th:field="*{roles}"
+        />
+    </label>
+    <br/>
     <br/>
     <input type="submit" value="Create!"/>
 </form>
